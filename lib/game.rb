@@ -19,6 +19,14 @@ class Game
     puts "Welcome Earthling to UFO: The Game. "
     puts "Instructions: save us from alien abduction by guessing letters in the codeword."
     puts @art_array[0]
+    puts "Codeword: #{dash_length} "
+
+  end
+
+  def dash_length
+      @codeword.chars.map do |x|
+        "_ "
+      end.join("")
   end
 
   def game_codeword

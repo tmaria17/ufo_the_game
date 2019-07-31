@@ -20,4 +20,11 @@ class GameTest < Minitest::Test
     @game.create_art_array
     assert_equal 7, @game.art_array.length
   end
+
+  def test_dash_length
+    @game.game_codeword
+    length_of_dashes = @game.game_codeword.chars.length
+    assert_equal "_", @game.dash_length.chars[0]
+    assert_equal length_of_dashes, @game.dash_length.gsub(/\s+/, "").chars.length
+  end
 end
