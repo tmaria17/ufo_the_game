@@ -16,6 +16,9 @@ class Game
     create_art_array
     puts @codeword
     #This is here for testing purpose remove later
+    puts "Welcome Earthling to UFO: The Game. "
+    puts "Instructions: save us from alien abduction by guessing letters in the codeword."
+    puts @art_array[0]
   end
 
   def game_codeword
