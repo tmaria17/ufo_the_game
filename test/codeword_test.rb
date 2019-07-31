@@ -5,8 +5,18 @@ require_relative '../lib/codeword'
 require 'pry'
 
 class CodewordTest < Minitest::Test
+  def setup
+    @code = Codeword.new
+  end
+
   def test_it_exists
-    word = Codeword.new
-    assert_instance_of Codeword, word
+    assert_instance_of Codeword, @code
+  end
+
+  def test_it_creates_dictionary_of_nouns
+    assert_equal 0, @code.words.length
+    @code.create_dictionary
+    assert_equal 4300, @code.words.length
+    assert_equal "aardvark", @code.words[0]
   end
 end
