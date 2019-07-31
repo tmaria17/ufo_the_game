@@ -19,4 +19,10 @@ class CodewordTest < Minitest::Test
     assert_equal 4300, @code.words.length
     assert_equal "aardvark", @code.words[0]
   end
+
+  def test_it_picks_a_random_word
+    @code.create_dictionary
+    word = @code.random_selection
+    assert @code.words.include?(word)
+  end
 end

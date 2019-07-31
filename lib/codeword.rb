@@ -4,6 +4,10 @@ class Codeword
     @words = [ ]
   end
 
+  def random_selection
+    @words.sample
+  end
+
   def create_dictionary
     File.open('./data/dictionary.txt',"r").each do |line|
       line.chomp!
