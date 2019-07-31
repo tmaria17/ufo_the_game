@@ -11,4 +11,8 @@ class GameTest < Minitest::Test
   def test_it_exists
     assert_instance_of Game, @game
   end
+
+  def test_codeword_is_made
+    assert_instance_of String, @game.game_codeword
+  end
 end

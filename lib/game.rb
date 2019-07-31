@@ -10,4 +10,14 @@ class Game
     @incorrect_guess_counter = 0
     @codeword = ''
   end
+
+  def play
+    game_codeword
+  end
+
+  def game_codeword
+    word = Codeword.new
+    word.create_dictionary
+    @codeword = word.random_selection
+  end
 end
