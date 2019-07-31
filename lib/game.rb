@@ -12,15 +12,55 @@ class Game
   end
 
   def play
+    @incorrect_guess_arr = [ ]
+    @correct_guess_arr = [ ]
+    @incorrect_guess_counter = 0
     game_codeword
     create_art_array
     puts @codeword
-    #This is here for testing purpose remove later
     puts "Welcome Earthling to UFO: The Game. "
     puts "Instructions: save us from alien abduction by guessing letters in the codeword."
     puts @art_array[0]
     puts "Codeword: #{dash_length} "
+    until check_for_lose == true||check_for_win == true
+      game_setup
+    end
+    if check_for_win == true
+      puts "**;* You win for now **;* .....for now"
+    else check_for_lose == true
+      puts "\u{1F47D} You failed to save your fellow human. \u{1F47D}"
+    end
+    play_again
+  end
 
+  def game_setup
+    puts "Please enter your guess: "
+    guess = gets.chomp.downcase
+    until check_if_guess_is_valid(guess) == true
+      guess = gets.chomp.downcase
+    end
+    puts evaluate_guess(guess)
+    display_state_of_abduction(@incorrect_guess_counter)
+    puts "Codeword: #{dash_length(guess)} "
+    puts "Incorrect Guesses: #{@incorrect_guess_arr.uniq.join(",")}"
+  end
+
+  def play_again
+    puts "Would you like to play again (Y/N)?"
+    user_choice = gets.chomp.upcase
+    if user_choice == "Y"
+      play
+    elsif user_choice == "N"
+      puts "Goodbye!"
+    end
+  end
+
+  def check_for_win
+    @correct_guess_arr.uniq.sort == @codeword.chars.uniq.sort
+  end
+
+  def check_for_lose
+    @incorrect_guess_counter == 6
   end
 
   def check_if_guess_is_valid(guess)
@@ -32,7 +72,7 @@ class Game
       true
     end
   end
-  
+
   def display_state_of_abduction(number_wrong)
     puts @art_array[number_wrong]
   end
