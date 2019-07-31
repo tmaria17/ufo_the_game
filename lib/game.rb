@@ -22,7 +22,7 @@ class Game
     puts "Codeword: #{dash_length} "
 
   end
-  
+
   def populate_blank_with_correct_guesses
   @codeword.chars.map do |letter|
    if @codeword.chars.any? {|l| @correct_guess_arr.include?(letter)}
@@ -33,10 +33,14 @@ class Game
   end.join(" ")
 end
 
-  def dash_length
+  def dash_length(guess=nil)
+    if guess == nil
       @codeword.chars.map do |x|
         "_ "
       end.join("")
+      else
+        populate_blank_with_correct_guesses
+    end
   end
 
   def game_codeword
