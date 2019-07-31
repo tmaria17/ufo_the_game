@@ -22,6 +22,16 @@ class Game
     puts "Codeword: #{dash_length} "
 
   end
+  
+  def populate_blank_with_correct_guesses
+  @codeword.chars.map do |letter|
+   if @codeword.chars.any? {|l| @correct_guess_arr.include?(letter)}
+      letter
+    else
+      "_"
+    end
+  end.join(" ")
+end
 
   def dash_length
       @codeword.chars.map do |x|

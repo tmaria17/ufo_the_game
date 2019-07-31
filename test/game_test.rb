@@ -27,4 +27,11 @@ class GameTest < Minitest::Test
     assert_equal "_", @game.dash_length.chars[0]
     assert_equal length_of_dashes, @game.dash_length.gsub(/\s+/, "").chars.length
   end
+
+  def test_populate_blank_with_correct_guesses
+    @game.game_codeword
+    @game.correct_guess_arr.push("a")
+    length_of_dashes = @game.game_codeword.chars.length
+    assert_equal length_of_dashes, @game.populate_blank_with_correct_guesses.gsub(/\s+/, "").chars.length
+  end
 end
