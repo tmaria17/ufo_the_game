@@ -2,7 +2,7 @@ require_relative "codeword"
 require_relative "art"
 
 class Game
-  attr_reader :correct_guess_arr, :codeword
+  attr_reader :correct_guess_arr, :codeword, :art_array
   def initialize
     @art_array = [ ]
     @incorrect_guess_arr = [ ]
@@ -13,11 +13,19 @@ class Game
 
   def play
     game_codeword
+    create_art_array
+    puts @codeword
+    #This is here for testing purpose remove later
   end
 
   def game_codeword
     word = Codeword.new
     word.create_dictionary
     @codeword = word.random_selection
+  end
+
+  def create_art_array
+    art_service = Art.new
+    @art_array = art_service.art_array
   end
 end

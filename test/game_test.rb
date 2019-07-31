@@ -15,4 +15,9 @@ class GameTest < Minitest::Test
   def test_codeword_is_made
     assert_instance_of String, @game.game_codeword
   end
+
+  def test_it_has_an_art_array
+    @game.create_art_array
+    assert_equal 7, @game.art_array.length
+  end
 end
