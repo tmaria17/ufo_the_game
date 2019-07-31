@@ -17,7 +17,6 @@ class Game
     @incorrect_guess_counter = 0
     game_codeword
     create_art_array
-    puts @codeword
     puts "Welcome Earthling to UFO: The Game. "
     puts "Instructions: save us from alien abduction by guessing letters in the codeword."
     puts @art_array[0]
