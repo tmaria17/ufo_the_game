@@ -2,7 +2,7 @@ require_relative "codeword"
 require_relative "art"
 
 class Game
-  attr_reader :correct_guess_arr, :codeword, :art_array
+  attr_reader :correct_guess_arr, :codeword, :art_array, :incorrect_guess_arr, :incorrect_guess_counter
   def initialize
     @art_array = [ ]
     @incorrect_guess_arr = [ ]
@@ -22,7 +22,21 @@ class Game
     puts "Codeword: #{dash_length} "
 
   end
+
+  def check_if_guess_is_valid(guess)
+    if guess.length > 1
+      puts "Sorry you may only enter one letter at a time."
+    elsif @incorrect_guess_arr.include?(guess) || @correct_guess_arr.include?(guess)
+      puts "Sorry Earthling, you may not guess the same letter twice"
+    else
+      true
+    end
+  end
   
+  def display_state_of_abduction(number_wrong)
+    puts @art_array[number_wrong]
+  end
+
   def evaluate_guess(guess=nil)
     if @codeword.chars.include?(guess)
       @correct_guess_arr.push(guess)
