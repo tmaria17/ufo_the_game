@@ -25,7 +25,7 @@ class Game
       game_setup
     end
     if check_for_win == true
-      puts "**;* You win for now **;* .....for now"
+      puts "**;* You win **;* .....for now"
     else check_for_lose == true
       puts "\u{1F47D} You failed to save your fellow human. \u{1F47D}"
     end
