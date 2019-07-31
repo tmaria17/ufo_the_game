@@ -54,4 +54,5 @@ class GameTest < Minitest::Test
   def test_it_checks_guess_is_valid
     assert true, @game.check_if_guess_is_valid("a")
   end
+
 end
