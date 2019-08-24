@@ -17,8 +17,6 @@
 
 Invaders from outer space have arrived and are abducting humans using tractor beams. Earn your medal of honor by cracking the codeword to stop the abduction!
 
-This project was done as a take home challenge.
-
 ## Playing the Game
 1. Clone down the repo:
 
